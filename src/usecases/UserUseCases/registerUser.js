@@ -4,18 +4,20 @@ import { formatDate } from "../../services/moment.js";
 export const registerUser = async (
   firstName,
   lastName,
-  phoneNumber,
+  phoneNo,
   email,
-  password
+  password,
+  image
 ) => {
   try {
     const date = await formatDate(Date.now());
     return await saveUser(
       firstName,
       lastName,
-      phoneNumber,
+      phoneNo,
       email,
       password,
+      image,
       date
     );
   } catch (err) {

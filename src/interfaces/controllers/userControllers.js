@@ -5,8 +5,9 @@ import { editUser } from "../../usecases/AdminUseCases/editUser.js";
 
 export const userRegister = async (req, res) => {
   try {
-    const { firstName, lastName, phoneNumber, email, password } = req.body;
-    await registerUser(firstName, lastName, phoneNumber, email, password);
+    const { firstName, lastName, phoneNo, email, password } = req.body;
+    const image = req.file.path;
+    await registerUser(firstName, lastName, phoneNo, email, password, image);
     return res.status(200).end();
   } catch (err) {
     console.log(err);
@@ -41,7 +42,8 @@ export const fetchProfile = async (req, res) => {
 export const userUpdate = async (req, res) => {
   try{
     const userId = req.params.id;
-    const response = await editUser(userId, req.body);
+    const image = req.file.path;
+    const response = await editUser(userId, req.body, image);
     return res.status(200).json(response);
   }catch(err){
     console.log(err);

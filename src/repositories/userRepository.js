@@ -1,7 +1,7 @@
 import User from "../entities/userModel.js";
 
-export const saveUser = async (firstName, lastName, phoneNumber, email, password, date) => {
-    const user = new User({ firstName, lastName, phoneNo: phoneNumber, email, password, date});
+export const saveUser = async (firstName, lastName, phoneNo, email, password, image, date) => {
+    const user = new User({ firstName, lastName, phoneNo: phoneNo, email, password,image, date});
     return await user.save();
 }
 

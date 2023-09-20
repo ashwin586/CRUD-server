@@ -22,7 +22,7 @@ export const getOneUser = async (id) => {
   }
 };
 
-export const updateuser = async (id, userData) => {
+export const updateuser = async (id, userData, image) => {
   try {
     const { firstName, lastName, phoneNo, email, password } = userData;
     return await User.findByIdAndUpdate(
@@ -33,6 +33,7 @@ export const updateuser = async (id, userData) => {
         phoneNo,
         email,
         password,
+        image,
       },
       { new: true }
     );
